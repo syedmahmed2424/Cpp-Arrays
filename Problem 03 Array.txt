@@ -1,0 +1,40 @@
+//Given an array a[] of size n. Output sum of each subarray of the input array.
+//subarray is the continuous part of an array
+//the time complexity of this task is O(n^2) bcz we are using two loops in the code
+
+#include<iostream>
+using namespace std;
+
+int main(){
+	
+	int n;
+	
+	cout<<"Enter size of Your Array: ";
+	cin>>n;
+	
+	int a[n];
+	
+	for (int i=0; i<n; i++){
+		
+		cin>> a[i];
+		cout<<endl;
+		
+	}
+	
+	for ( int i=0; i < n; i += 1){
+		
+		int curr = 0;
+		
+		for ( int j=i; j<n; j +=1 ){
+			curr+=a[j];
+			cout<<curr<<"\n";	
+		}
+		
+		cout<<"\n";
+		
+	}
+	
+	
+	return 0;
+	
+}

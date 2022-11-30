@@ -1,0 +1,19 @@
+//Given an array a[] of size n. From 0 to n-1 index, output maximum of every value:
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	int mx=-99999999;
+	cout<<"Enter size of an array:";
+	cin>>n;
+	int a[n];
+	for(int i=0; i<n; i++){
+		cin>>a[i];
+	}
+	
+	for (int i=0;i<n; i++){
+		mx=max(mx,a[i]);
+		cout<<mx;
+	}
+	return 0;
+}

@@ -1,0 +1,65 @@
+//Given an unsorted array A of size N of non-negative integers, find a continuous subarray 
+//whihc adds to a given number S. Means if you have a number 12 for S that's means your
+//subarray elements sum should be equal to S.
+//COnstrainst :     1<=N<=10^5
+//                  0<=ai<=10^10
+//Example:
+// n=5, s=12:
+//   A[]={1,3,4,5,7} 
+// Output sould be 2 4 (from position 2 to 4 the sum is equal to 12 like 3+4+5)
+#include<iostream>
+using namespace std;
+int main(){
+	
+	int n,s;   //n:-size,,,,,  s  ->  number 
+	cout<<"Enter your size: ";
+	cin>>n;
+	cout<<"Enter your number S: ";
+	cin>>s;
+	
+	int a[n];  //array a
+	
+	for (int i=0; i<n; i++){
+		
+		cin>>a[i];	    //taking input of an array.
+	}
+	
+	int j=0,i=0,en=-1,st=-1,sum=0;   //to pointers one is i for starting point st and second 
+	//is j for en, we are using two pointers techniwue in this code. 
+	
+	while(j<n && sum+a[j]<=s){
+		
+		sum+=a[j];
+		j++;
+		
+	}
+	
+	
+	if(sum==s){
+		cout<<i+1<<" "<<j+1;
+		return 0;
+	}
+	//if sum!=s that's means it will be greater than s.
+	
+	while(j<n){
+		
+		sum+=a[j];
+		
+		while(sum>s){
+			sum-=a[i]; 
+			i++;
+		}
+		
+		if(sum==s){
+		en=j+1;
+		st=i+1;
+		break;
+	}
+	j++;
+	}
+	cout<<st<<" "<<en;
+	
+	
+	
+	return 0;
+}
